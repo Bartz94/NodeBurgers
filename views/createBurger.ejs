@@ -5,13 +5,17 @@
         <%- include("./partials/nav.ejs") %>
 
             <div class="create-blog content">
-                <form>
-                    <label for="title">Burger name:</label>
-                    <input type="text" id="title" name="title" required>
-                    <label for="snippet">Burger ingredients:</label>
-                    <textarea id="body" name="body" required></textarea>
-                    <label for="body">Burger price:</label>
-                    <input type="number" id="snippet" name="snippet" required>
+                <form action="/burgers" method="POST">
+
+                    <label for="name">Burger name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="ingredients">Burger ingredients:</label>
+                    <input type="text" id="ingredients" name="ingredients" required>
+
+                    <label for="price">Burger price:</label>
+                    <input type="number" id="price" name="price" required>
+
                     <button>Submit</button>
                 </form>
             </div>
