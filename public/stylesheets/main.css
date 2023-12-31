@@ -1,0 +1,43 @@
+@import 'shared/variables.css';
+@import 'shared/header.css';
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: var(--color-text-light);
+}
+
+body {
+    background: linear-gradient(to top, var(--color-background-dark), var(--color-background-light));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+}
+
+p,
+a {
+    margin: 5px;
+    padding: 1px;
+    text-decoration: none;
+}
+
+
+.main-title {
+    text-align: center;
+    font-size: 65px;
+    margin-top: 120px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+}
+
+.info-text {
+    text-align: center;
+    font-size: 40px;
+}
