@@ -4,9 +4,8 @@
     <body>
         <%- include("./partials/nav.ejs") %>
 
-            <div class="create-blog content">
+            <div class="main-container">
                 <form action="/burgers" method="POST">
-
                     <label for="name">Burger name:</label>
                     <input type="text" id="name" name="name" required>
 
@@ -16,7 +15,7 @@
                     <label for="price">Burger price:</label>
                     <input type="number" id="price" name="price" required>
 
-                    <button>Submit</button>
+                    <button role="button" class="create-button" style="margin-top: 20px;">Create</button>
                 </form>
             </div>
 

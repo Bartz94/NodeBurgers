@@ -3,25 +3,39 @@
 
     <body>
         <%- include("./partials/nav.ejs") %>
-            <div>
-                <h2>Menu</h2>
+
+            <div class="main-container">
+                <h2 class="main-title">Menu</h2>
                 <% if (burgers.length> 0) { %>
                     <% burgers.forEach(burger=> { %>
-
+                        <img width="400px"
+                            src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp" alt="">
                         <h3>
                             <%= burger.name %>
                         </h3>
-                        <p>
-                            <%= burger.ingredients %>
-                        </p>
-                        <p>
-                            <%= burger.price %>
-                        </p>
+                        <div style='display: flex;'>
+                            <p>
+                                Ingredients:
+                            </p>
+                            <p>
+                                <%= burger.ingredients %>
+                            </p>
+                        </div>
+                        <div style='display: flex;'>
+                            <p>
+                                Price:
+                            </p>
+                            <p>
+                                <%= burger.price %> zł
+                            </p>
+                        </div>
+                        <hr style="width: 60%; margin-bottom: 20px;">
                         <% }) %>
                             <% } else { %>
                                 <p>There are no burgers to display...</p>
                                 <% } %>
             </div>
+
             <%- include("./partials/footer.ejs") %>
     </body>
 
