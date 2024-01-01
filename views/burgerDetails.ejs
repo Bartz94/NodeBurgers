@@ -1,0 +1,58 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="main-container">
+                <a href="/burgers/<%= burgers._id %>">
+                    <img width="400px"
+                        src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp" alt="">
+                </a>
+
+                <h3>
+                    <%= burgers.name %>
+                </h3>
+                <div style='display: flex;'>
+                    <p>
+                        Ingredients:
+                    </p>
+                    <p>
+                        <%= burgers.ingredients %>
+                    </p>
+                </div>
+                <div style='display: flex;'>
+                    <p>
+                        Price:
+                    </p>
+                    <p>
+                        <%= burgers.price %> zł
+                    </p>
+                </div>
+                <a class="delete" data-doc="<%= burgers._id %>">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                </a>
+            </div>
+
+            <%- include("./partials/footer.ejs") %>
+
+                <script>
+                    const trashcan = document.querySelector('a.delete');
+
+                    trashcan.addEventListener('click', (e) => {
+                        const endpoint = `/burgers/${trashcan.dataset.doc}`;
+
+                        fetch(endpoint, {
+                            method: 'DELETE',
+                        })
+                            .then(response => response.json())
+                            .then(data => window.location.href = data.redirect)
+                            .catch(err => console.log(err));
+                    });
+
+                </script>
+    </body>
+
+</html>

@@ -8,8 +8,12 @@
                 <h2 class="main-title">Menu</h2>
                 <% if (burgers.length> 0) { %>
                     <% burgers.forEach(burger=> { %>
-                        <img width="400px"
-                            src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp" alt="">
+                        <a href="/burgers/<%= burger._id %>">
+                            <img width="300px"
+                                src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp"
+                                alt="">
+                        </a>
+
                         <h3>
                             <%= burger.name %>
                         </h3>

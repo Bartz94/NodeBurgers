@@ -1,5 +1,7 @@
 @import 'shared/variables.css';
 @import 'shared/header.css';
+@import 'shared/footer.css';
+@import './createBurger.css';
 
 :root {
     font-family: 'Roboto', sans-serif;
