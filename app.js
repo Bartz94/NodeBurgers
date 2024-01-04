@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const burgerRoutes = require('./routes/burgerRoutes');
 
 require("dotenv").config();
@@ -8,10 +7,6 @@ require("dotenv").config();
 const app = express();
 
 // connect to mongo db
-// mongoose.connect(process.env.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then((result) => app.listen(3000))
-//     .catch((err) => { console.log(err) })
-
 const connectDB = require("./connectDB");
 
 connectDB();
