@@ -2,14 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const burgerRoutes = require('./routes/burgerRoutes');
 
+require("dotenv").config();
+
 // express app
 const app = express();
 
 // connect to mongo db
-const dbURI = 'mongodb+srv://user:test12345@nodeburgers.fqid5mt.mongodb.net/nodeburgers?retryWrites=true&w=majority';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(3000))
-    .catch((err) => { console.log(err) })
+// mongoose.connect(process.env.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then((result) => app.listen(3000))
+//     .catch((err) => { console.log(err) })
+
+const connectDB = require("./connectDB");
+
+connectDB();
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -35,6 +40,12 @@ app.get('/about', (req, res) => {
 app.use('/burgers', burgerRoutes);
 
 // 404 page
-// app.use((req, res) => {
-//     res.status(404).render('404', { title: '404' });
-// });
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+});
+
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log("Server is running on port " + PORT);
+});
