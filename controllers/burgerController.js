@@ -48,10 +48,24 @@ const burger_delete = (req, res) => {
         });
 }
 
+const burger_update_put = async (req, res) => {
+    let burger
+    try {
+        burger = await Burger.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        await burger.save()
+        res.redirect(`/burgers`)
+    } catch {
+        if (burger == null) {
+            res.redirect('/')
+        }
+    }
+}
+
 module.exports = {
     burger_main,
     burger_details,
     burger_create_get,
     burger_create_post,
-    burger_delete
+    burger_delete,
+    burger_update_put
 }

@@ -3,8 +3,23 @@
 
     <body>
         <%- include("./partials/nav.ejs") %>
-
             <div class="main-container">
+                <img width="400px" src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp"
+                    alt="">
+                <form action="/burgers/<%= burgers._id %>?_method=PUT" method="POST">
+                    <label for="name">Burger name:</label>
+                    <input value="<%=burgers.name %>" type="text" id="name" name="name">
+
+                    <label for="ingredients">Burger ingredients:</label>
+                    <input value="<%=burgers.ingredients %>" type="text" id="ingredients" name="ingredients">
+
+                    <label for="price">Burger price:</label>
+                    <input value="<%=burgers.price %>" type="number" id="price" name="price">
+
+                    <button role="button" class="create-button" style="margin-top: 20px;">Update</button>
+                </form>
+            </div>
+            <!-- <div class="main-container">
                 <a href="/burgers/<%= burgers._id %>">
                     <img width="400px"
                         src="https://cdn.openart.ai/uploads/image_random_0SzXIX0m_1668380639708_1024.webp" alt="">
@@ -34,10 +49,10 @@
                         delete
                     </span>
                 </a>
-            </div>
+            </div> -->
 
             <%- include("./partials/footer.ejs") %>
-
+                <!-- 
                 <script>
                     const trashcan = document.querySelector('a.delete');
 
@@ -52,7 +67,7 @@
                             .catch(err => console.log(err));
                     });
 
-                </script>
+                </script> -->
     </body>
 
 </html>
